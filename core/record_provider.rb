@@ -41,7 +41,7 @@ class RecordProvider
   private
   def self.records
     return @records if @records
-    @records = Mongo::Connection.from_uri(Helpers::MONGOHQ_URL).db("Timelog").collection("Records")
+    @records = Mongo::Connection.from_uri(Helpers::MONGOHQ_URL).db("heroku_app35034272").collection("Records")
     @records
   end
 end
