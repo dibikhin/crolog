@@ -33,7 +33,7 @@ class UserProvider
   private
   def self.users
     return @users if @users
-    @users = Mongo::Connection.from_uri(Helpers::MONGOHQ_URL).db("Timelog").collection("Users")
+    @users = Mongo::Connection.from_uri(Helpers::MONGOHQ_URL).db("heroku_app35034272").collection("Users")
     @users
   end
 end
