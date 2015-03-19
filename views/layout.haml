@@ -1,0 +1,26 @@
+﻿!!! 5
+%html
+	%head
+		%meta{:charset => "utf-8"}
+		%title= @title
+		%link{:rel => "stylesheet", :href => "/css/site.css?v=1.1"}
+	%body
+		.page
+			%header
+				.text-align-right
+					- if defined?(@username)
+						%strong
+							%a{:href => "/profile"}= @username
+							&nbsp;
+						%a{:href => "/logoff"} Log Off
+					- else
+						%strong
+							&nbsp;
+				%h1 Timelogger
+			%section
+				= yield
+			%footer
+				.text-align-right
+					%a{:href => "https://github.com/dibikhin/timelogger"} GitHub
+					%a{:href => "http://twitter.com/dibikhin"} Twitter
+					%a{:href => "mailto:dibikhin@gmail.com?Subject=Timelogger"} E-mail

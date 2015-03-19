@@ -1,0 +1,15 @@
+= currentRecord.startUtc.localtime(utc_offset).strftime('%l:%M %P')
+- if !currentRecord.duration.nil? # todo it happens never
+  = currentRecord.duration.nice_strftime
+- else
+  - current_duration = Time.now.utc - currentRecord.startUtc
+  - if !currentRecord.totalPausedDuration.nil?
+    - current_duration -= currentRecord.totalPausedDuration
+  = Time.at(current_duration).utc.nice_strftime
+%input{ :name => 'task_id', :placeholder => 'Task Id', :class => 'narrow-input text-align-right', :autofocus => 'true' }
+%input{ :name => 'description', :placeholder => 'Description', :class => 'almost-wide-input' }
+- if state == RecorderState::STOPPING
+  %input{ :type => 'button', :value => 'Skip', :onclick => 'window.location="/skip_on_stop"' }
+%input{ :type => 'submit', :value => 'Save' }
+or
+%a{ :href => '/continue' } continue
