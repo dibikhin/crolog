@@ -36,3 +36,6 @@
                 = "...last paused"
                 - paused_duration = Time.now.utc - record.lastPauseStartUtc
                 = Time.at(paused_duration).utc.nice_strftime + ' ago '
+- else
+  %p
+    Your time log will be here.

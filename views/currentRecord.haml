@@ -7,7 +7,7 @@
     - current_duration -= currentRecord.totalPausedDuration
   = Time.at(current_duration).utc.nice_strftime
 %input{ :name => 'task_id', :placeholder => 'Task Id', :class => 'narrow-input text-align-right', :autofocus => 'true' }
-%input{ :name => 'description', :placeholder => 'Description', :class => 'almost-wide-input' }
+%input{ :name => 'description', :placeholder => 'Description', :class => 'wide-input' }
 - if state == RecorderState::STOPPING
   %input{ :type => 'button', :value => 'Skip', :onclick => 'window.location="/skip_on_stop"' }
 %input{ :type => 'submit', :value => 'Save' }
